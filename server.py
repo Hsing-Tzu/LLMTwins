@@ -118,7 +118,7 @@ async def intent_recognition(prompt: prompt):
         raise HTTPException(status_code = 404, detail = "API table for this user is not registered")
 
     dt = DigitalTwins()
-    result, message = dt.intent_recognition(prompt.message)
+    result, message = dt.intent_recognition(prompt.role, prompt.message)
 
     return {"result": result, "message": message}
 
